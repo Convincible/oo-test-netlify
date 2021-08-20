@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "bundle exec jekyll serve --no-watch",
+    "build": "bundle exec jekyll build --no-watch"
+  }
+}
