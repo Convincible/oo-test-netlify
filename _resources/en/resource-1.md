@@ -8,3 +8,5 @@ This first resource is in **English**.
 Added some content.
 
 Another line.
+
+A fourth line.
