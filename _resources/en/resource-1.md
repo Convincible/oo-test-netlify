@@ -6,3 +6,5 @@ lang: en
 This first resource is in **English**.
 
 Added some content.
+
+Another line.
