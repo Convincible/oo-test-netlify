@@ -7,4 +7,4 @@ My third `resource` in English.
 
 > A resource is a resource.
 
-Test.
+Test 2.
