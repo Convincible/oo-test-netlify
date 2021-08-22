@@ -3,9 +3,9 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 media_folder: "uploads" # Media files will be stored in the repo under static/images/uploads
 collections:
-  - name: "resources" # Used in routes, e.g., /admin/collections/blog
-    label: "Resources" # Used in the UI
-    folder: "_resources" # The path to the folder where the documents are stored
+  - name: "resources-en" # Used in routes, e.g., /admin/collections/blog
+    label: "Resources (English)" # Used in the UI
+    folder: "_resources/en" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
@@ -13,3 +13,74 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Language", name: "lang", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+    sortable_fields:
+      - title
+      - date
+      - author
+      - lang
+    view_filters:
+      - label: English
+        field: lang
+        pattern: en
+      - label: Spanish
+        field: lang
+        pattern: es
+    view_groups:
+      - label: Language
+        field: lang
+  - name: "resources" # Used in routes, e.g., /admin/collections/blog
+    label: "Resources (All)" # Used in the UI
+    folder: "_resources" # The path to the folder where the documents are stored
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    path: "{{lang}}/{{slug}}"
+    summary: "{{lang | upper}} - {{slug}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Language", name: "lang", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    sortable_fields:
+      - title
+      - date
+      - author
+      - lang
+    view_filters:
+      - label: English
+        field: lang
+        pattern: en
+      - label: Spanish
+        field: lang
+        pattern: es
+    view_groups:
+      - label: Language
+        field: lang
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "Pages" # Used in the UI
+    folder: "_pages" # The path to the folder where the documents are stored
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    #path: "{{lang}}/{{slug}}"
+    #summary: "{{lang | upper}} - {{slug}}"
+    create: true # Allow users to create new documents in this collection
+    nested:
+      depth: 100
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Language", name: "lang", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    sortable_fields:
+      - title
+      - date
+      - author
+      - lang
+    view_filters:
+      - label: English
+        field: lang
+        pattern: en
+      - label: Spanish
+        field: lang
+        pattern: es
+    view_groups:
+      - label: Language
+        field: lang
